@@ -7,11 +7,12 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		FA099E1219D6205200D9F6B9 /* MyCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA099E1019D6205200D9F6B9 /* MyCollectionViewCell.swift */; };
+		FA099E1319D6205200D9F6B9 /* MyCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = FA099E1119D6205200D9F6B9 /* MyCollectionViewCell.xib */; };
 		FA4391B319D4E74600CA06C4 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA4391B219D4E74600CA06C4 /* AppDelegate.swift */; };
 		FA4391B519D4E74600CA06C4 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA4391B419D4E74600CA06C4 /* ViewController.swift */; };
 		FA4391B819D4E74600CA06C4 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = FA4391B619D4E74600CA06C4 /* Main.storyboard */; };
 		FA4391BA19D4E74600CA06C4 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = FA4391B919D4E74600CA06C4 /* Images.xcassets */; };
-		FA4391BD19D4E74600CA06C4 /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = FA4391BB19D4E74600CA06C4 /* LaunchScreen.xib */; };
 		FA4391C919D4E74600CA06C4 /* DynamicCollectionViewCellWithAutoLayout_DemoTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA4391C819D4E74600CA06C4 /* DynamicCollectionViewCellWithAutoLayout_DemoTests.swift */; };
 /* End PBXBuildFile section */
 
@@ -26,13 +27,14 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		FA099E1019D6205200D9F6B9 /* MyCollectionViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MyCollectionViewCell.swift; sourceTree = "<group>"; };
+		FA099E1119D6205200D9F6B9 /* MyCollectionViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = MyCollectionViewCell.xib; sourceTree = "<group>"; };
 		FA4391AD19D4E74600CA06C4 /* DynamicCollectionViewCellWithAutoLayout-Demo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "DynamicCollectionViewCellWithAutoLayout-Demo.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		FA4391B119D4E74600CA06C4 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		FA4391B219D4E74600CA06C4 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		FA4391B419D4E74600CA06C4 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		FA4391B719D4E74600CA06C4 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		FA4391B919D4E74600CA06C4 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
-		FA4391BC19D4E74600CA06C4 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/LaunchScreen.xib; sourceTree = "<group>"; };
 		FA4391C219D4E74600CA06C4 /* DynamicCollectionViewCellWithAutoLayout-DemoTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "DynamicCollectionViewCellWithAutoLayout-DemoTests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
 		FA4391C719D4E74600CA06C4 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		FA4391C819D4E74600CA06C4 /* DynamicCollectionViewCellWithAutoLayout_DemoTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DynamicCollectionViewCellWithAutoLayout_DemoTests.swift; sourceTree = "<group>"; };
@@ -80,8 +82,9 @@
 				FA4391B219D4E74600CA06C4 /* AppDelegate.swift */,
 				FA4391B419D4E74600CA06C4 /* ViewController.swift */,
 				FA4391B619D4E74600CA06C4 /* Main.storyboard */,
+				FA099E1019D6205200D9F6B9 /* MyCollectionViewCell.swift */,
+				FA099E1119D6205200D9F6B9 /* MyCollectionViewCell.xib */,
 				FA4391B919D4E74600CA06C4 /* Images.xcassets */,
-				FA4391BB19D4E74600CA06C4 /* LaunchScreen.xib */,
 				FA4391B019D4E74600CA06C4 /* Supporting Files */,
 			);
 			path = "DynamicCollectionViewCellWithAutoLayout-Demo";
@@ -193,8 +196,8 @@
 			buildActionMask = 2147483647;
 			files = (
 				FA4391B819D4E74600CA06C4 /* Main.storyboard in Resources */,
-				FA4391BD19D4E74600CA06C4 /* LaunchScreen.xib in Resources */,
 				FA4391BA19D4E74600CA06C4 /* Images.xcassets in Resources */,
+				FA099E1319D6205200D9F6B9 /* MyCollectionViewCell.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -214,6 +217,7 @@
 			files = (
 				FA4391B519D4E74600CA06C4 /* ViewController.swift in Sources */,
 				FA4391B319D4E74600CA06C4 /* AppDelegate.swift in Sources */,
+				FA099E1219D6205200D9F6B9 /* MyCollectionViewCell.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -242,14 +246,6 @@
 				FA4391B719D4E74600CA06C4 /* Base */,
 			);
 			name = Main.storyboard;
-			sourceTree = "<group>";
-		};
-		FA4391BB19D4E74600CA06C4 /* LaunchScreen.xib */ = {
-			isa = PBXVariantGroup;
-			children = (
-				FA4391BC19D4E74600CA06C4 /* Base */,
-			);
-			name = LaunchScreen.xib;
 			sourceTree = "<group>";
 		};
 /* End PBXVariantGroup section */
@@ -338,7 +334,9 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
 				INFOPLIST_FILE = "DynamicCollectionViewCellWithAutoLayout-Demo/Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 			};
@@ -348,7 +346,9 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
 				INFOPLIST_FILE = "DynamicCollectionViewCellWithAutoLayout-Demo/Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 			};
@@ -407,6 +407,7 @@
 				FA4391CE19D4E74600CA06C4 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		FA4391CF19D4E74600CA06C4 /* Build configuration list for PBXNativeTarget "DynamicCollectionViewCellWithAutoLayout-DemoTests" */ = {
 			isa = XCConfigurationList;
@@ -415,6 +416,7 @@
 				FA4391D119D4E74600CA06C4 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
