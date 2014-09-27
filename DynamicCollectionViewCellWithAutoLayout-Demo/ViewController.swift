@@ -143,5 +143,16 @@ class ViewController: UIViewController, UICollectionViewDataSource, UICollection
         collectionView.reloadData()
         collectionView.collectionViewLayout.invalidateLayout()
     }
+    
+    // MARK: - Rotation
+    // iOS7
+    override func willRotateToInterfaceOrientation(toInterfaceOrientation: UIInterfaceOrientation, duration: NSTimeInterval) {
+        collectionView.collectionViewLayout.invalidateLayout()
+    }
+    
+    // iOS8
+    override func viewWillTransitionToSize(size: CGSize, withTransitionCoordinator coordinator: UIViewControllerTransitionCoordinator) {
+        collectionView.collectionViewLayout.invalidateLayout()
+    }
 }
 
