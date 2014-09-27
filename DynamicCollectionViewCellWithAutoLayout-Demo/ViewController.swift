@@ -25,6 +25,7 @@ class ViewController: UIViewController, UICollectionViewDataSource, UICollection
     var numberOfCells = 3
     var titleData = [NSString]()
     var contentData = [NSString]()
+    var fontArray = UIFont.familyNames()
 
     // A dictionary of offscreen cells that are used within the sizeForItemAtIndexPath method to handle the size calculations. These are never drawn onscreen. The dictionary is in the format:
     // { NSString *reuseIdentifier : UICollectionViewCell *offscreenCell, ... }
@@ -39,16 +40,20 @@ class ViewController: UIViewController, UICollectionViewDataSource, UICollection
         collectionView.registerNib(myCellNib, forCellWithReuseIdentifier: kCellIdentifier)
         
         for i in 0..<3 {
-            var randomNumber1 = Int(arc4random_uniform(UInt32(exampleContent.length)))
-            var randomNumber2 = Int(arc4random_uniform(UInt32(exampleContent.length)))
-            var text = exampleContent.substringWithRange(NSRange(location: min(randomNumber1, randomNumber2), length: abs(randomNumber1 - randomNumber2)))
-            contentData.append(text)
-            
-            randomNumber1 = Int(arc4random_uniform(UInt32(exampleTitle.length)))
-            randomNumber2 = Int(arc4random_uniform(UInt32(exampleTitle.length)))
-            text = exampleTitle.substringWithRange(NSRange(location: min(randomNumber1, randomNumber2), length: abs(randomNumber1 - randomNumber2)))
-            titleData.append(text)
+            self.addNewOne()
         }
+    }
+    
+    func addNewOne() {
+        var randomNumber1 = Int(arc4random_uniform(UInt32(exampleContent.length)))
+        var randomNumber2 = Int(arc4random_uniform(UInt32(exampleContent.length)))
+        var text = exampleContent.substringWithRange(NSRange(location: min(randomNumber1, randomNumber2), length: abs(randomNumber1 - randomNumber2)))
+        contentData.append(text)
+        
+        randomNumber1 = Int(arc4random_uniform(UInt32(exampleTitle.length)))
+        randomNumber2 = Int(arc4random_uniform(UInt32(exampleTitle.length)))
+        text = exampleTitle.substringWithRange(NSRange(location: min(randomNumber1, randomNumber2), length: abs(randomNumber1 - randomNumber2)))
+        titleData.append(text)
     }
 
     override func didReceiveMemoryWarning() {
@@ -68,7 +73,8 @@ class ViewController: UIViewController, UICollectionViewDataSource, UICollection
     func collectionView(collectionView: UICollectionView, cellForItemAtIndexPath indexPath: NSIndexPath) -> UICollectionViewCell {
         var cell: MyCollectionViewCell = collectionView.dequeueReusableCellWithReuseIdentifier(kCellIdentifier, forIndexPath: indexPath) as MyCollectionViewCell
         
-        cell.configCell(titleData[indexPath.item], content: contentData[indexPath.item])
+        cell.configCell(titleData[indexPath.item], content: contentData[indexPath.item], titleFont: fontArray[indexPath.item] as String, contentFont: fontArray[indexPath.item] as String)
+        
         // Make sure layout subviews
         cell.layoutIfNeeded()
         return cell
@@ -77,7 +83,7 @@ class ViewController: UIViewController, UICollectionViewDataSource, UICollection
     // MARK: - UICollectionViewFlowLayout Delegate
     func collectionView(collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAtIndexPath indexPath: NSIndexPath) -> CGSize {
         // Set up desired width
-        let targetWidth: CGFloat = 300
+        let targetWidth: CGFloat = (self.collectionView.bounds.width - 3 * kHorizontalInsets) / 2
         
         // Use fake cell to calculate height
         let reuseIdentifier = kCellIdentifier
@@ -87,7 +93,8 @@ class ViewController: UIViewController, UICollectionViewDataSource, UICollection
             self.offscreenCells[reuseIdentifier] = cell
         }
         
-//        cell!.configWithType("Home", address: address)
+        // Config cell and let system determine size
+        cell!.configCell(titleData[indexPath.item], content: contentData[indexPath.item], titleFont: fontArray[indexPath.item] as String, contentFont: fontArray[indexPath.item] as String)
         
         // Cell's size is determined in nib file, need to set it's width (in this case), and inside, use this cell's width to set label's preferredMaxLayoutWidth, thus, height can be determined, this size will be returned for real cell initialization
         cell!.bounds = CGRectMake(0, 0, targetWidth, cell!.bounds.height)
@@ -113,6 +120,28 @@ class ViewController: UIViewController, UICollectionViewDataSource, UICollection
     
     func collectionView(collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, minimumInteritemSpacingForSectionAtIndex section: Int) -> CGFloat {
         return kVerticalInsets
+    }
+    
+    func shuffle<T>(var list: Array<T>) -> Array<T> {
+        for i in 0..<list.count {
+            let j = Int(arc4random_uniform(UInt32(list.count - i))) + i
+            list.insert(list.removeAtIndex(j), atIndex: i)
+        }
+        return list
+    }
+    
+    @IBAction func add(sender: AnyObject) {
+        addNewOne()
+        self.shuffle(fontArray)
+        collectionView.reloadData()
+        collectionView.collectionViewLayout.invalidateLayout()
+    }
+    @IBAction func deleteOne(sender: AnyObject) {
+        if titleData.count > 0 { titleData.removeLast() }
+        if contentData.count > 0 { contentData.removeLast() }
+        self.shuffle(fontArray)
+        collectionView.reloadData()
+        collectionView.collectionViewLayout.invalidateLayout()
     }
 }
 

@@ -36,9 +36,14 @@ class MyCollectionViewCell: UICollectionViewCell {
         contentLabel.preferredMaxLayoutWidth = self.bounds.width - 2 * kLabelHorizontalInsets
     }
     
-    func configCell(title: String, content: String) {
+    func configCell(title: String, content: String, titleFont: String, contentFont: String) {
         titleLabel.text = title
         contentLabel.text = content
+        
+        titleLabel.font = UIFont(name: titleFont, size: 18)
+        contentLabel.font = UIFont(name: contentFont, size: 16)
+        self.setNeedsLayout()
+        self.layoutIfNeeded()
     }
 
 }
