@@ -33,6 +33,7 @@ class MyCollectionViewCell: UICollectionViewCell {
     // In layoutSubViews, need set preferredMaxLayoutWidth for multiple lines label
     override func layoutSubviews() {
         super.layoutSubviews()
+        // Set what preferredMaxLayoutWidth you want
         contentLabel.preferredMaxLayoutWidth = self.bounds.width - 2 * kLabelHorizontalInsets
     }
     

@@ -29,7 +29,7 @@ class ViewController: UIViewController, UICollectionViewDataSource, UICollection
 
     // A dictionary of offscreen cells that are used within the sizeForItemAtIndexPath method to handle the size calculations. These are never drawn onscreen. The dictionary is in the format:
     // { NSString *reuseIdentifier : UICollectionViewCell *offscreenCell, ... }
-    var offscreenCells = Dictionary<String, UICollectionViewCell>();
+    var offscreenCells = Dictionary<String, UICollectionViewCell>()
     
     override func viewDidLoad() {
         super.viewDidLoad()
