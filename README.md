@@ -10,6 +10,8 @@ Cell is created in xib file, can be also created in code.
 
 Cell is a basic cell with a title label and a content label. Title label has 1 line text and content label has multiple lines text.
 
+### Interface builder
+
 There are totally 7 constraints for two labels:
 
 ![](https://raw.githubusercontent.com/honghaoz/Dynamic-Collection-View-Cell-With-Auto-Layout-Demo/master/Screenshots/cell.png?token=3926785__eyJzY29wZSI6IlJhd0Jsb2I6aG9uZ2hhb3ovRHluYW1pYy1Db2xsZWN0aW9uLVZpZXctQ2VsbC1XaXRoLUF1dG8tTGF5b3V0LURlbW8vbWFzdGVyL1NjcmVlbnNob3RzL2NlbGwucG5nIiwiZXhwaXJlcyI6MTQxMjQ1NTM5NX0%3D--9553b945bbfa038d86f226060b3bdb7fcb1424d1)
@@ -28,6 +30,10 @@ Title label
 Content label
 ![](https://raw.githubusercontent.com/honghaoz/Dynamic-Collection-View-Cell-With-Auto-Layout-Demo/master/Screenshots/contentCell.png?token=3926785__eyJzY29wZSI6IlJhd0Jsb2I6aG9uZ2hhb3ovRHluYW1pYy1Db2xsZWN0aW9uLVZpZXctQ2VsbC1XaXRoLUF1dG8tTGF5b3V0LURlbW8vbWFzdGVyL1NjcmVlbnNob3RzL2NvbnRlbnRDZWxsLnBuZyIsImV4cGlyZXMiOjE0MTI0NTU2NzJ9--181cc53d91087c5d51527ee2f4c21acb1b965e17)
 
+### In code
+
+#### UICollectionViewCell
+
 Subclassing this UICollectionViewCell
 
 In `awakeFromNib()`, for iOS7 remember to set
@@ -39,6 +45,10 @@ self.contentView.autoresizingMask = UIViewAutoresizing.FlexibleHeight | UIViewAu
 and in `layoutSubviews()`
 
 Set `contentLabel.preferredMaxLayoutWidth` to a prefered value, like `contentLabel.preferredMaxLayoutWidth = self.bounds.width - 2 * kLabelHorizontalInsets`
+
+You may also need a configure function, make sure in this function, call `self.setNeedsLayout()` and `self.layoutIfNeeded()`
+
+#### View Controller of UICollectionView
 
 In collectionView's view controller, two key delegate methods are `collectionView:layout:sizeForItemAtIndexPath:` and `cellForItemAtIndexPath:`
 
