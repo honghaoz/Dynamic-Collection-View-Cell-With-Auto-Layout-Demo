@@ -7,7 +7,7 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
         <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
-        <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" verticalCompressionResistancePriority="1000" reuseIdentifier="MyCell" id="gTV-IL-0wX" customClass="MyCollectionViewCell" customModule="DynamicCollectionViewCellWithAutoLayout_Demo" customModuleProvider="target">
+        <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="MyCell" id="gTV-IL-0wX" customClass="MyCollectionViewCell" customModule="DynamicCollectionViewCellWithAutoLayout_Demo" customModuleProvider="target">
             <rect key="frame" x="0.0" y="0.0" width="300" height="149"/>
             <autoresizingMask key="autoresizingMask"/>
             <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
@@ -52,7 +52,7 @@
                 <outlet property="contentLabel" destination="oQJ-Cp-uuG" id="eMT-SJ-qwA"/>
                 <outlet property="titleLabel" destination="1Mt-UF-MRV" id="Rw9-bF-rfJ"/>
             </connections>
-            <point key="canvasLocation" x="250" y="232.5"/>
+            <point key="canvasLocation" x="131" y="232.5"/>
         </collectionViewCell>
     </objects>
 </document>
