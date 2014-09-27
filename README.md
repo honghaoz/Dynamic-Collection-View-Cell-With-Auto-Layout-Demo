@@ -28,8 +28,6 @@ Title label
 Content label
 ![](https://raw.githubusercontent.com/honghaoz/Dynamic-Collection-View-Cell-With-Auto-Layout-Demo/master/Screenshots/contentCell.png?token=3926785__eyJzY29wZSI6IlJhd0Jsb2I6aG9uZ2hhb3ovRHluYW1pYy1Db2xsZWN0aW9uLVZpZXctQ2VsbC1XaXRoLUF1dG8tTGF5b3V0LURlbW8vbWFzdGVyL1NjcmVlbnNob3RzL2NvbnRlbnRDZWxsLnBuZyIsImV4cGlyZXMiOjE0MTI0NTU2NzJ9--181cc53d91087c5d51527ee2f4c21acb1b965e17)
 
-![](https://raw.githubusercontent.com/honghaoz/Dynamic-Collection-View-Cell-With-Auto-Layout-Demo/master/Screenshots/contentCell2.png?token=3926785__eyJzY29wZSI6IlJhd0Jsb2I6aG9uZ2hhb3ovRHluYW1pYy1Db2xsZWN0aW9uLVZpZXctQ2VsbC1XaXRoLUF1dG8tTGF5b3V0LURlbW8vbWFzdGVyL1NjcmVlbnNob3RzL2NvbnRlbnRDZWxsMi5wbmciLCJleHBpcmVzIjoxNDEyNDU1NzAxfQ%3D%3D--f8e17af45fbd27370ea92dafb5b2279992a084b8)
-
 Subclassing this UICollectionViewCell
 
 In `awakeFromNib()`, for iOS7 remember to set
