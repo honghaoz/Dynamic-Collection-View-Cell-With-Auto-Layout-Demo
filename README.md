@@ -38,8 +38,40 @@ self.contentView.autoresizingMask = UIViewAutoresizing.FlexibleHeight | UIViewAu
 
 and in `layoutSubviews()`
 
-add `contentLabel.preferredMaxLayoutWidth = self.bounds.width - 2 * kLabelHorizontalInsets`
+Set `contentLabel.preferredMaxLayoutWidth` to a prefered value, like `contentLabel.preferredMaxLayoutWidth = self.bounds.width - 2 * kLabelHorizontalInsets`
 
+In collectionView's view controller, two key delegate methods are `collectionView:layout:sizeForItemAtIndexPath:` and `cellForItemAtIndexPath:`
+
+Since `collectionView:layout:sizeForItemAtIndexPath:` is called before `cellForItemAtIndexPath:`, so we need to initialize a cell and let system use auto layout to calculate height for us. To avoid memeory leak, we use a dictionary to cache the cells that are off screen (not shown on screen)
+
+The dictionary variable is `var offscreenCells = Dictionary<String, UICollectionViewCell>()`
+
+In `collectionView:layout:sizeForItemAtIndexPath:`, first create or retrieve a cell
+
+```
+var cell: MyCollectionViewCell? = self.offscreenCells[reuseIdentifier] as? MyCollectionViewCell
+if cell == nil {
+    cell = NSBundle.mainBundle().loadNibNamed("MyCollectionViewCell", owner: self, options: nil)[0] as? MyCollectionViewCell
+    self.offscreenCells[reuseIdentifier] = cell
+}
+```
+Once a cell is initialized, its size is determined by size in xib file, thus, we need configure texts in cell and layoutSubviews, this will let system recalculate the size of cell
+
+```
+// Config cell and let system determine size
+cell!.configCell(titleData[indexPath.item], content: contentData[indexPath.item], titleFont: fontArray[indexPath.item] as String, contentFont: fontArray[indexPath.item] as String)
+// Cell's size is determined in nib file, need to set it's width (in this case), and inside, use this cell's width to set label's preferredMaxLayoutWidth, thus, height can be determined, this size will be returned for real cell initialization
+cell!.bounds = CGRectMake(0, 0, targetWidth, cell!.bounds.height)
+cell!.contentView.bounds = cell!.bounds
+        
+// Layout subviews, this will let labels on this cell to set preferredMaxLayoutWidth
+cell!.setNeedsLayout()
+cell!.layoutIfNeeded()
+```
+
+Once cell is updated, call `var size = cell!.contentView.systemLayoutSizeFittingSize(UILayoutFittingCompressedSize)` to get the size for this cell.
+
+In `cellForItemAtIndexPath:`, cell also need configured and layout its subviews
 
 
 ## Screen shots
