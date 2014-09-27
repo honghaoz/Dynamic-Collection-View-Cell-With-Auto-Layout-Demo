@@ -16,19 +16,9 @@
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" verticalHuggingPriority="1000" horizontalCompressionResistancePriority="1000" verticalCompressionResistancePriority="1000" text="Title" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="1Mt-UF-MRV" userLabel="TitleLabel">
                         <rect key="frame" x="8" y="8" width="284" height="21"/>
                         <color key="backgroundColor" red="0.80000000000000004" green="0.59999999999999998" blue="1" alpha="0.10000000000000001" colorSpace="calibratedRGB"/>
-                        <constraints>
-                            <constraint firstAttribute="height" constant="38" id="Neb-jG-3ac"/>
-                            <constraint firstAttribute="height" constant="21" id="RIi-uD-ehu"/>
-                        </constraints>
                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
                         <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                         <nil key="highlightedColor"/>
-                        <variation key="default">
-                            <mask key="constraints">
-                                <exclude reference="Neb-jG-3ac"/>
-                                <exclude reference="RIi-uD-ehu"/>
-                            </mask>
-                        </variation>
                     </label>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" verticalHuggingPriority="999" horizontalCompressionResistancePriority="1000" verticalCompressionResistancePriority="1000" text="Content" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" preferredMaxLayoutWidth="300" translatesAutoresizingMaskIntoConstraints="NO" id="oQJ-Cp-uuG" userLabel="ContentLabel">
                         <rect key="frame" x="8" y="37" width="284" height="104"/>
