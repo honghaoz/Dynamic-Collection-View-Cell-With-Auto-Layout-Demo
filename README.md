@@ -89,3 +89,25 @@ In `cellForItemAtIndexPath:`, cell also need configured and layout its subviews
 
 
 ![](https://raw.githubusercontent.com/honghaoz/Dynamic-Collection-View-Cell-With-Auto-Layout-Demo/master/iOS%20Simulator%20Screen%20Shot2.png?token=3926785__eyJzY29wZSI6IlJhd0Jsb2I6aG9uZ2hhb3ovRHluYW1pYy1Db2xsZWN0aW9uLVZpZXctQ2VsbC1XaXRoLUF1dG8tTGF5b3V0LURlbW8vbWFzdGVyL2lPUyBTaW11bGF0b3IgU2NyZWVuIFNob3QyLnBuZyIsImV4cGlyZXMiOjE0MTI0NTQ2MDl9--438f993f9a552dba2ceddb1836005d7b464d9ccf)
+
+## The MIT License (MIT)
+
+Copyright (c) 2014 Honghao Zhang
+
+Permission is hereby granted, free of charge, to any person obtaining a copy
+of this software and associated documentation files (the "Software"), to deal
+in the Software without restriction, including without limitation the rights
+to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+copies of the Software, and to permit persons to whom the Software is
+furnished to do so, subject to the following conditions:
+
+The above copyright notice and this permission notice shall be included in all
+copies or substantial portions of the Software.
+
+THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
+SOFTWARE.
