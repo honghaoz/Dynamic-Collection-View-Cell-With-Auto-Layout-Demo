@@ -4,6 +4,11 @@ Demo for Collection View on iOS with auto layout in UICollectionViewCell to crea
 
 Works on iOS7 and iOS8
 
+## Updated
+
+For off screen cells, there's a new dynamic collection view which will handle it gracefully. Check it out!
+[ZHDynamicCollectionView](https://github.com/honghaoz/ZHDynamicCollectionView)
+
 ## Explanation
 
 Cell is created in xib file, can be also created in code.
