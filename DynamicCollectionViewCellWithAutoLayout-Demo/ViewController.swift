@@ -71,9 +71,9 @@ class ViewController: UIViewController, UICollectionViewDataSource, UICollection
     }
     
     func collectionView(collectionView: UICollectionView, cellForItemAtIndexPath indexPath: NSIndexPath) -> UICollectionViewCell {
-        var cell: MyCollectionViewCell = collectionView.dequeueReusableCellWithReuseIdentifier(kCellIdentifier, forIndexPath: indexPath) as MyCollectionViewCell
+        var cell: MyCollectionViewCell = collectionView.dequeueReusableCellWithReuseIdentifier(kCellIdentifier, forIndexPath: indexPath) as! MyCollectionViewCell
         
-        cell.configCell(titleData[indexPath.item], content: contentData[indexPath.item], titleFont: fontArray[indexPath.item] as String, contentFont: fontArray[indexPath.item] as String)
+        cell.configCell(titleData[indexPath.item] as! String, content: contentData[indexPath.item] as! String, titleFont: fontArray[indexPath.item] as! String, contentFont: fontArray[indexPath.item] as! String)
         
         // Make sure layout subviews
         cell.layoutIfNeeded()
@@ -94,7 +94,7 @@ class ViewController: UIViewController, UICollectionViewDataSource, UICollection
         }
         
         // Config cell and let system determine size
-        cell!.configCell(titleData[indexPath.item], content: contentData[indexPath.item], titleFont: fontArray[indexPath.item] as String, contentFont: fontArray[indexPath.item] as String)
+        cell!.configCell(titleData[indexPath.item] as! String, content: contentData[indexPath.item] as! String, titleFont: fontArray[indexPath.item] as! String, contentFont: fontArray[indexPath.item] as! String)
         
         // Cell's size is determined in nib file, need to set it's width (in this case), and inside, use this cell's width to set label's preferredMaxLayoutWidth, thus, height can be determined, this size will be returned for real cell initialization
         cell!.bounds = CGRectMake(0, 0, targetWidth, cell!.bounds.height)
