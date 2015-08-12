@@ -44,7 +44,7 @@ Subclassing this UICollectionViewCell
 In `awakeFromNib()`, for iOS7 remember to set
 
 ```
-self.contentView.autoresizingMask = UIViewAutoresizing.FlexibleHeight | UIViewAutoresizing.FlexibleWidt
+self.contentView.autoresizingMask = UIViewAutoresizing.FlexibleHeight | UIViewAutoresizing.FlexibleWidth
 ```
 
 and in `layoutSubviews()`
