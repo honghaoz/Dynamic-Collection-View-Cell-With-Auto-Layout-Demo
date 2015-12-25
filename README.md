@@ -2,12 +2,12 @@
 
 Demo for Collection View on iOS with auto layout in UICollectionViewCell to create cells with dynamic heights
 
-Works on iOS7 and iOS8
+Works on iOS7, iOS8 and iOS9.
 
 ## Updated
 
-For off screen cells, there's a new dynamic collection view which will handle it gracefully. Check it out!
-[ZHDynamicCollectionView](https://github.com/honghaoz/ZHDynamicCollectionView)
+Updated to Swift 2.1.1 
+Demo can now be displayed in all iPhone screen sizes. 
 
 ## Explanation
 
@@ -21,9 +21,9 @@ There are totally 7 constraints for two labels:
 
 ![](https://raw.githubusercontent.com/honghaoz/Dynamic-Collection-View-Cell-With-Auto-Layout-Demo/master/Screenshots/cell.png?token=3926785__eyJzY29wZSI6IlJhd0Jsb2I6aG9uZ2hhb3ovRHluYW1pYy1Db2xsZWN0aW9uLVZpZXctQ2VsbC1XaXRoLUF1dG8tTGF5b3V0LURlbW8vbWFzdGVyL1NjcmVlbnNob3RzL2NlbGwucG5nIiwiZXhwaXJlcyI6MTQxMjQ1NTM5NX0%3D--9553b945bbfa038d86f226060b3bdb7fcb1424d1)
 
-For title label, there are top, leading, trailing spacing with superView.
-For content label, there are botton, leading, trailing spacing with superView.
-And there is a fixed vertical spacing between bottom of title label with top of content label
+For the title label, there are top, leading, trailing spacing with superView.
+For the content label, there are bottom, leading, trailing spacing with superView.
+And there is a fixed vertical spacing between the bottom of the title label with the top of the content label
 
 All of these 7 constraints have 1000 priority
 
