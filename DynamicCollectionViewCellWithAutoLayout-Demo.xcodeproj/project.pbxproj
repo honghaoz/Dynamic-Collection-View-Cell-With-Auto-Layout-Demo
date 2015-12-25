@@ -3,15 +3,15 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 46;
+	objectVersion = 47;
 	objects = {
 
 /* Begin PBXBuildFile section */
+		E783D5AA1C2DC6B900570E73 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E783D5A91C2DC6B900570E73 /* Main.storyboard */; };
 		FA099E1219D6205200D9F6B9 /* MyCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA099E1019D6205200D9F6B9 /* MyCollectionViewCell.swift */; };
 		FA099E1319D6205200D9F6B9 /* MyCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = FA099E1119D6205200D9F6B9 /* MyCollectionViewCell.xib */; };
 		FA4391B319D4E74600CA06C4 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA4391B219D4E74600CA06C4 /* AppDelegate.swift */; };
 		FA4391B519D4E74600CA06C4 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA4391B419D4E74600CA06C4 /* ViewController.swift */; };
-		FA4391B819D4E74600CA06C4 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = FA4391B619D4E74600CA06C4 /* Main.storyboard */; };
 		FA4391BA19D4E74600CA06C4 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = FA4391B919D4E74600CA06C4 /* Images.xcassets */; };
 		FA4391C919D4E74600CA06C4 /* DynamicCollectionViewCellWithAutoLayout_DemoTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA4391C819D4E74600CA06C4 /* DynamicCollectionViewCellWithAutoLayout_DemoTests.swift */; };
 /* End PBXBuildFile section */
@@ -27,13 +27,13 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		E783D5A91C2DC6B900570E73 /* Main.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Main.storyboard; sourceTree = "<group>"; };
 		FA099E1019D6205200D9F6B9 /* MyCollectionViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MyCollectionViewCell.swift; sourceTree = "<group>"; };
 		FA099E1119D6205200D9F6B9 /* MyCollectionViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = MyCollectionViewCell.xib; sourceTree = "<group>"; };
 		FA4391AD19D4E74600CA06C4 /* DynamicCollectionViewCellWithAutoLayout-Demo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "DynamicCollectionViewCellWithAutoLayout-Demo.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		FA4391B119D4E74600CA06C4 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		FA4391B219D4E74600CA06C4 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		FA4391B419D4E74600CA06C4 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
-		FA4391B719D4E74600CA06C4 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		FA4391B919D4E74600CA06C4 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
 		FA4391C219D4E74600CA06C4 /* DynamicCollectionViewCellWithAutoLayout-DemoTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "DynamicCollectionViewCellWithAutoLayout-DemoTests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
 		FA4391C719D4E74600CA06C4 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -58,6 +58,15 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		E7CD6B811C2DD2470036C6E3 /* Cell */ = {
+			isa = PBXGroup;
+			children = (
+				FA099E1019D6205200D9F6B9 /* MyCollectionViewCell.swift */,
+				FA099E1119D6205200D9F6B9 /* MyCollectionViewCell.xib */,
+			);
+			name = Cell;
+			sourceTree = "<group>";
+		};
 		FA4391A419D4E74600CA06C4 = {
 			isa = PBXGroup;
 			children = (
@@ -81,9 +90,8 @@
 			children = (
 				FA4391B219D4E74600CA06C4 /* AppDelegate.swift */,
 				FA4391B419D4E74600CA06C4 /* ViewController.swift */,
-				FA4391B619D4E74600CA06C4 /* Main.storyboard */,
-				FA099E1019D6205200D9F6B9 /* MyCollectionViewCell.swift */,
-				FA099E1119D6205200D9F6B9 /* MyCollectionViewCell.xib */,
+				E783D5A91C2DC6B900570E73 /* Main.storyboard */,
+				E7CD6B811C2DD2470036C6E3 /* Cell */,
 				FA4391B919D4E74600CA06C4 /* Images.xcassets */,
 				FA4391B019D4E74600CA06C4 /* Supporting Files */,
 			);
@@ -159,7 +167,8 @@
 		FA4391A519D4E74600CA06C4 /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
-				LastUpgradeCheck = 0600;
+				LastSwiftUpdateCheck = 0720;
+				LastUpgradeCheck = 0720;
 				ORGANIZATIONNAME = HonghaoZ;
 				TargetAttributes = {
 					FA4391AC19D4E74600CA06C4 = {
@@ -172,7 +181,7 @@
 				};
 			};
 			buildConfigurationList = FA4391A819D4E74600CA06C4 /* Build configuration list for PBXProject "DynamicCollectionViewCellWithAutoLayout-Demo" */;
-			compatibilityVersion = "Xcode 3.2";
+			compatibilityVersion = "Xcode 6.3";
 			developmentRegion = English;
 			hasScannedForEncodings = 0;
 			knownRegions = (
@@ -195,7 +204,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				FA4391B819D4E74600CA06C4 /* Main.storyboard in Resources */,
+				E783D5AA1C2DC6B900570E73 /* Main.storyboard in Resources */,
 				FA4391BA19D4E74600CA06C4 /* Images.xcassets in Resources */,
 				FA099E1319D6205200D9F6B9 /* MyCollectionViewCell.xib in Resources */,
 			);
@@ -239,17 +248,6 @@
 		};
 /* End PBXTargetDependency section */
 
-/* Begin PBXVariantGroup section */
-		FA4391B619D4E74600CA06C4 /* Main.storyboard */ = {
-			isa = PBXVariantGroup;
-			children = (
-				FA4391B719D4E74600CA06C4 /* Base */,
-			);
-			name = Main.storyboard;
-			sourceTree = "<group>";
-		};
-/* End PBXVariantGroup section */
-
 /* Begin XCBuildConfiguration section */
 		FA4391CA19D4E74600CA06C4 /* Debug */ = {
 			isa = XCBuildConfiguration;
@@ -271,6 +269,7 @@
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				COPY_PHASE_STRIP = NO;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
 				GCC_C_LANGUAGE_STANDARD = gnu99;
 				GCC_DYNAMIC_NO_PIC = NO;
 				GCC_OPTIMIZATION_LEVEL = 0;
@@ -338,6 +337,7 @@
 				INFOPLIST_FILE = "DynamicCollectionViewCellWithAutoLayout-Demo/Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = "com.honghaoz.$(PRODUCT_NAME:rfc1034identifier)";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 			};
 			name = Debug;
@@ -350,6 +350,7 @@
 				INFOPLIST_FILE = "DynamicCollectionViewCellWithAutoLayout-Demo/Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = "com.honghaoz.$(PRODUCT_NAME:rfc1034identifier)";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 			};
 			name = Release;
@@ -368,6 +369,7 @@
 				);
 				INFOPLIST_FILE = "DynamicCollectionViewCellWithAutoLayout-DemoTests/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = "com.honghaoz.$(PRODUCT_NAME:rfc1034identifier)";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/DynamicCollectionViewCellWithAutoLayout-Demo.app/DynamicCollectionViewCellWithAutoLayout-Demo";
 			};
@@ -383,6 +385,7 @@
 				);
 				INFOPLIST_FILE = "DynamicCollectionViewCellWithAutoLayout-DemoTests/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = "com.honghaoz.$(PRODUCT_NAME:rfc1034identifier)";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/DynamicCollectionViewCellWithAutoLayout-Demo.app/DynamicCollectionViewCellWithAutoLayout-Demo";
 			};
