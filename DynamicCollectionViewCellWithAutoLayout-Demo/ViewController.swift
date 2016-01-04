@@ -37,10 +37,10 @@ class ViewController: UIViewController, UICollectionViewDataSource, UICollection
         // Register cells
         collectionView.dataSource = self
         collectionView.delegate = self
-        var myCellNib = UINib(nibName: "MyCollectionViewCell", bundle: nil)
+        let myCellNib = UINib(nibName: "MyCollectionViewCell", bundle: nil)
         collectionView.registerNib(myCellNib, forCellWithReuseIdentifier: kCellIdentifier)
         
-        for i in 0..<3 {
+        for _ in 0..<3 {
             self.addNewOne()
         }
     }
@@ -72,7 +72,8 @@ class ViewController: UIViewController, UICollectionViewDataSource, UICollection
     }
     
     func collectionView(collectionView: UICollectionView, cellForItemAtIndexPath indexPath: NSIndexPath) -> UICollectionViewCell {
-        var cell: MyCollectionViewCell = collectionView.dequeueReusableCellWithReuseIdentifier(kCellIdentifier, forIndexPath: indexPath) as! MyCollectionViewCell
+        
+        let cell: MyCollectionViewCell = collectionView.dequeueReusableCellWithReuseIdentifier(kCellIdentifier, forIndexPath: indexPath) as! MyCollectionViewCell
         
         cell.configCell(titleData[indexPath.item] as String, content: contentData[indexPath.item] as String, titleFont: fontArray[indexPath.item] as String, contentFont: fontArray[indexPath.item] as String)
         
