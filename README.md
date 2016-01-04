@@ -44,7 +44,7 @@ Subclassing this UICollectionViewCell
 In `awakeFromNib()`, for iOS7 remember to set
 
 ```
-self.contentView.autoresizingMask = UIViewAutoresizing.FlexibleHeight | UIViewAutoresizing.FlexibleWidt
+self.contentView.autoresizingMask = UIViewAutoresizing.FlexibleHeight | UIViewAutoresizing.FlexibleWidth
 ```
 
 and in `layoutSubviews()`
@@ -57,7 +57,7 @@ You may also need a configure function, make sure in this function, call `self.s
 
 In collectionView's view controller, two key delegate methods are `collectionView:layout:sizeForItemAtIndexPath:` and `cellForItemAtIndexPath:`
 
-Since `collectionView:layout:sizeForItemAtIndexPath:` is called before `cellForItemAtIndexPath:`, so we need to initialize a cell and let system use auto layout to calculate height for us. To avoid memeory leak, we use a dictionary to cache the cells that are off screen (not shown on screen)
+Since `collectionView:layout:sizeForItemAtIndexPath:` is called before `cellForItemAtIndexPath:`, so we need to initialize a cell and let system use auto layout to calculate height for us. To avoid memory leak, we use a dictionary to cache the cells that are off screen (not shown on screen)
 
 The dictionary variable is `var offscreenCells = Dictionary<String, UICollectionViewCell>()`
 
