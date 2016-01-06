@@ -47,11 +47,7 @@ Subclassing this UICollectionViewCell
 In `awakeFromNib()`, for iOS7 remember to set
 
 ```
-<<<<<<< HEAD
 self.contentView.autoresizingMask = [.FlexibleHeight, .FlexibleWidth]
-=======
-self.contentView.autoresizingMask = UIViewAutoresizing.FlexibleHeight | UIViewAutoresizing.FlexibleWidth
->>>>>>> honghaoz/master
 ```
 
 and in `layoutSubviews()`
@@ -85,7 +81,7 @@ cell!.configCell(titleData[indexPath.item], content: contentData[indexPath.item]
 // Cell's size is determined in nib file, need to set it's width (in this case), and inside, use this cell's width to set label's preferredMaxLayoutWidth, thus, height can be determined, this size will be returned for real cell initialization
 cell!.bounds = CGRectMake(0, 0, targetWidth, cell!.bounds.height)
 cell!.contentView.bounds = cell!.bounds
-        
+
 // Layout subviews, this will let labels on this cell to set preferredMaxLayoutWidth
 cell!.setNeedsLayout()
 cell!.layoutIfNeeded()
