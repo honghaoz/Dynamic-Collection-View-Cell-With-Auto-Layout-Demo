@@ -33,13 +33,14 @@ class ViewController: UIViewController, UICollectionViewDataSource, UICollection
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
         // Register cells
         collectionView.dataSource = self
         collectionView.delegate = self
-        var myCellNib = UINib(nibName: "MyCollectionViewCell", bundle: nil)
+        let myCellNib = UINib(nibName: "MyCollectionViewCell", bundle: nil)
         collectionView.registerNib(myCellNib, forCellWithReuseIdentifier: kCellIdentifier)
         
-        for i in 0..<3 {
+        for _ in 0..<3 {
             self.addNewOne()
         }
     }
@@ -71,9 +72,10 @@ class ViewController: UIViewController, UICollectionViewDataSource, UICollection
     }
     
     func collectionView(collectionView: UICollectionView, cellForItemAtIndexPath indexPath: NSIndexPath) -> UICollectionViewCell {
-        var cell: MyCollectionViewCell = collectionView.dequeueReusableCellWithReuseIdentifier(kCellIdentifier, forIndexPath: indexPath) as! MyCollectionViewCell
         
-        cell.configCell(titleData[indexPath.item] as! String, content: contentData[indexPath.item] as! String, titleFont: fontArray[indexPath.item] as! String, contentFont: fontArray[indexPath.item] as! String)
+        let cell: MyCollectionViewCell = collectionView.dequeueReusableCellWithReuseIdentifier(kCellIdentifier, forIndexPath: indexPath) as! MyCollectionViewCell
+        
+        cell.configCell(titleData[indexPath.item] as String, content: contentData[indexPath.item] as String, titleFont: fontArray[indexPath.item] as String, contentFont: fontArray[indexPath.item] as String)
         
         // Make sure layout subviews
         cell.layoutIfNeeded()
@@ -94,7 +96,7 @@ class ViewController: UIViewController, UICollectionViewDataSource, UICollection
         }
         
         // Config cell and let system determine size
-        cell!.configCell(titleData[indexPath.item] as! String, content: contentData[indexPath.item] as! String, titleFont: fontArray[indexPath.item] as! String, contentFont: fontArray[indexPath.item] as! String)
+        cell!.configCell(titleData[indexPath.item] as String, content: contentData[indexPath.item] as String, titleFont: fontArray[indexPath.item] as String, contentFont: fontArray[indexPath.item] as String)
         
         // Cell's size is determined in nib file, need to set it's width (in this case), and inside, use this cell's width to set label's preferredMaxLayoutWidth, thus, height can be determined, this size will be returned for real cell initialization
         cell!.bounds = CGRectMake(0, 0, targetWidth, cell!.bounds.height)
@@ -130,12 +132,14 @@ class ViewController: UIViewController, UICollectionViewDataSource, UICollection
         return list
     }
     
+    // Adds a new cell
     @IBAction func add(sender: AnyObject) {
         addNewOne()
         self.shuffle(fontArray)
         collectionView.reloadData()
         collectionView.collectionViewLayout.invalidateLayout()
     }
+    // Deletes a cell
     @IBAction func deleteOne(sender: AnyObject) {
         if titleData.count > 0 { titleData.removeLast() }
         if contentData.count > 0 { contentData.removeLast() }
@@ -148,11 +152,11 @@ class ViewController: UIViewController, UICollectionViewDataSource, UICollection
     // iOS7
     override func willRotateToInterfaceOrientation(toInterfaceOrientation: UIInterfaceOrientation, duration: NSTimeInterval) {
         collectionView.collectionViewLayout.invalidateLayout()
-    }
+        }
     
     // iOS8
     override func viewWillTransitionToSize(size: CGSize, withTransitionCoordinator coordinator: UIViewControllerTransitionCoordinator) {
         collectionView.collectionViewLayout.invalidateLayout()
-    }
+        }
 }
 
