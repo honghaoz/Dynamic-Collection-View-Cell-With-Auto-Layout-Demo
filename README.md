@@ -9,6 +9,9 @@ Works on iOS7, iOS8 and iOS9.
 Updated to Swift 2.1.1 
 Demo can now be displayed in all iPhone screen sizes. 
 
+For off screen cells, there's a new dynamic collection view which will handle it gracefully. Check it out!
+[ZHDynamicCollectionView](https://github.com/honghaoz/ZHDynamicCollectionView)
+
 ## Explanation
 
 Cell is created in xib file, can be also created in code.
