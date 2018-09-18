@@ -17,15 +17,15 @@ class ViewController: UIViewController, UICollectionViewDataSource, UICollection
     let kHorizontalInsets: CGFloat = 10.0
     let kVerticalInsets: CGFloat = 10.0
     
-    var exampleTitle: NSString = "Steve Jobs, BMW & eBay"
+    var exampleTitle: String = "Steve Jobs, BMW & eBay"
     
-    var exampleContent: NSString = "And you know what? He’s right.\nThe world doesn’t need another Dell or HP.  It doesn’t need another manufacturer of plain, beige, boring PCs.  If that’s all we’re going to do, then we should really pack up now.\nBut we’re lucky, because Apple has a purpose.  Unlike anyone in the industry, people want us to make products that they love.  In fact, more than love.  Our job is to make products that people lust for.  That’s what Apple is meant to be.\nWhat’s BMW’s market share of the auto market?  Does anyone know?  Well, it’s less than 2%, but no one cares.  Why?  Because either you drive a BMW or you stare at the new one driving by.  If we do our job, we’ll make products that people lust after, and no one will care about our market share.\nApple is a start-up.  Granted, it’s a startup with $6B in revenue, but that can and will go in an instant.  If you are here for a cushy 9-to-5 job, then that’s OK, but you should go.  We’re going to make sure everyone has stock options, and that they are oriented towards the long term.  If you need a big salary and bonus, then that’s OK, but you should go.  This isn’t going to be that place.  There are plenty of companies like that in the Valley.  This is going to be hard work, possibly the hardest you’ve ever done.  But if we do it right, it’s going to be worth it.\n"
+    var exampleContent: String = "And you know what? He’s right.\nThe world doesn’t need another Dell or HP.  It doesn’t need another manufacturer of plain, beige, boring PCs.  If that’s all we’re going to do, then we should really pack up now.\nBut we’re lucky, because Apple has a purpose.  Unlike anyone in the industry, people want us to make products that they love.  In fact, more than love.  Our job is to make products that people lust for.  That’s what Apple is meant to be.\nWhat’s BMW’s market share of the auto market?  Does anyone know?  Well, it’s less than 2%, but no one cares.  Why?  Because either you drive a BMW or you stare at the new one driving by.  If we do our job, we’ll make products that people lust after, and no one will care about our market share.\nApple is a start-up.  Granted, it’s a startup with $6B in revenue, but that can and will go in an instant.  If you are here for a cushy 9-to-5 job, then that’s OK, but you should go.  We’re going to make sure everyone has stock options, and that they are oriented towards the long term.  If you need a big salary and bonus, then that’s OK, but you should go.  This isn’t going to be that place.  There are plenty of companies like that in the Valley.  This is going to be hard work, possibly the hardest you’ve ever done.  But if we do it right, it’s going to be worth it.\n"
     
     var numberOfSections = 1
     var numberOfCells = 3
-    var titleData = [NSString]()
-    var contentData = [NSString]()
-    var fontArray = UIFont.familyNames()
+    var titleData = [String]()
+    var contentData = [String]()
+    var fontArray = UIFont.familyNames
 
     // A dictionary of offscreen cells that are used within the sizeForItemAtIndexPath method to handle the size calculations. These are never drawn onscreen. The dictionary is in the format:
     // { NSString *reuseIdentifier : UICollectionViewCell *offscreenCell, ... }
@@ -38,7 +38,7 @@ class ViewController: UIViewController, UICollectionViewDataSource, UICollection
         collectionView.dataSource = self
         collectionView.delegate = self
         let myCellNib = UINib(nibName: "MyCollectionViewCell", bundle: nil)
-        collectionView.registerNib(myCellNib, forCellWithReuseIdentifier: kCellIdentifier)
+        collectionView.register(myCellNib, forCellWithReuseIdentifier: kCellIdentifier)
         
         for _ in 0..<3 {
             self.addNewOne()
@@ -46,14 +46,16 @@ class ViewController: UIViewController, UICollectionViewDataSource, UICollection
     }
     
     func addNewOne() {
-        var randomNumber1 = Int(arc4random_uniform(UInt32(exampleContent.length)))
-        var randomNumber2 = Int(arc4random_uniform(UInt32(exampleContent.length)))
-        var text = exampleContent.substringWithRange(NSRange(location: min(randomNumber1, randomNumber2), length: abs(randomNumber1 - randomNumber2)))
+        var randomNumber1 = Int(arc4random_uniform(UInt32(exampleContent.count)))
+        var randomNumber2 = Int(arc4random_uniform(UInt32(exampleContent.count)))
+        let range1 = NSRange(location: min(randomNumber1, randomNumber2), length: abs(randomNumber1 - randomNumber2))
+        var text = (exampleContent as NSString).substring(with: range1)
         contentData.append(text)
         
-        randomNumber1 = Int(arc4random_uniform(UInt32(exampleTitle.length)))
-        randomNumber2 = Int(arc4random_uniform(UInt32(exampleTitle.length)))
-        text = exampleTitle.substringWithRange(NSRange(location: min(randomNumber1, randomNumber2), length: abs(randomNumber1 - randomNumber2)))
+        randomNumber1 = Int(arc4random_uniform(UInt32(exampleTitle.count)))
+        randomNumber2 = Int(arc4random_uniform(UInt32(exampleTitle.count)))
+        let range2 = NSRange(location: min(randomNumber1, randomNumber2), length: abs(randomNumber1 - randomNumber2))
+        text = (exampleTitle as NSString).substring(with: range2)
         titleData.append(text)
     }
 
@@ -67,15 +69,14 @@ class ViewController: UIViewController, UICollectionViewDataSource, UICollection
         return 1
     }
     
-    func collectionView(collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
+    func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         return contentData.count
     }
     
-    func collectionView(collectionView: UICollectionView, cellForItemAtIndexPath indexPath: NSIndexPath) -> UICollectionViewCell {
+    func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
+        let cell: MyCollectionViewCell = collectionView.dequeueReusableCell(withReuseIdentifier: kCellIdentifier, for: indexPath) as! MyCollectionViewCell
         
-        let cell: MyCollectionViewCell = collectionView.dequeueReusableCellWithReuseIdentifier(kCellIdentifier, forIndexPath: indexPath) as! MyCollectionViewCell
-        
-        cell.configCell(titleData[indexPath.item] as String, content: contentData[indexPath.item] as String, titleFont: fontArray[indexPath.item] as String, contentFont: fontArray[indexPath.item] as String)
+        cell.configCell(title: titleData[indexPath.item], content: contentData[indexPath.item], titleFont: fontArray[indexPath.item], contentFont: fontArray[indexPath.item])
         
         // Make sure layout subviews
         cell.layoutIfNeeded()
@@ -83,7 +84,7 @@ class ViewController: UIViewController, UICollectionViewDataSource, UICollection
     }
     
     // MARK: - UICollectionViewFlowLayout Delegate
-    func collectionView(collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAtIndexPath indexPath: NSIndexPath) -> CGSize {
+    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
         // Set up desired width
         let targetWidth: CGFloat = (self.collectionView.bounds.width - 3 * kHorizontalInsets) / 2
         
@@ -91,72 +92,75 @@ class ViewController: UIViewController, UICollectionViewDataSource, UICollection
         let reuseIdentifier = kCellIdentifier
         var cell: MyCollectionViewCell? = self.offscreenCells[reuseIdentifier] as? MyCollectionViewCell
         if cell == nil {
-            cell = NSBundle.mainBundle().loadNibNamed("MyCollectionViewCell", owner: self, options: nil)[0] as? MyCollectionViewCell
-            self.offscreenCells[reuseIdentifier] = cell
+            if let cells = Bundle.main.loadNibNamed("MyCollectionViewCell", owner: self, options: nil), let c = cells[0] as? MyCollectionViewCell {
+                cell = c
+                self.offscreenCells[reuseIdentifier] = c
+            }
         }
         
         // Config cell and let system determine size
-        cell!.configCell(titleData[indexPath.item] as String, content: contentData[indexPath.item] as String, titleFont: fontArray[indexPath.item] as String, contentFont: fontArray[indexPath.item] as String)
+        cell!.configCell(title: titleData[indexPath.item], content: contentData[indexPath.item], titleFont: fontArray[indexPath.item], contentFont: fontArray[indexPath.item])
         
         // Cell's size is determined in nib file, need to set it's width (in this case), and inside, use this cell's width to set label's preferredMaxLayoutWidth, thus, height can be determined, this size will be returned for real cell initialization
-        cell!.bounds = CGRectMake(0, 0, targetWidth, cell!.bounds.height)
+        cell!.bounds = CGRect(x: 0, y: 0, width: targetWidth, height: cell!.bounds.height)
         cell!.contentView.bounds = cell!.bounds
         
         // Layout subviews, this will let labels on this cell to set preferredMaxLayoutWidth
         cell!.setNeedsLayout()
         cell!.layoutIfNeeded()
         
-        var size = cell!.contentView.systemLayoutSizeFittingSize(UILayoutFittingCompressedSize)
+        var size = cell!.contentView.systemLayoutSizeFitting(UIView.layoutFittingCompressedSize)
         // Still need to force the width, since width can be smalled due to break mode of labels
         size.width = targetWidth
         return size
     }
     
-    func collectionView(collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, insetForSectionAtIndex section: Int) -> UIEdgeInsets {
-        return UIEdgeInsetsMake(kVerticalInsets, kHorizontalInsets, kVerticalInsets, kHorizontalInsets)
+    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, insetForSectionAt section: Int) -> UIEdgeInsets {
+        return UIEdgeInsets(top: kVerticalInsets, left: kHorizontalInsets, bottom: kVerticalInsets, right: kHorizontalInsets)
     }
     
-    func collectionView(collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, minimumLineSpacingForSectionAtIndex section: Int) -> CGFloat {
+    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, minimumLineSpacingForSectionAt section: Int) -> CGFloat {
         return kHorizontalInsets
     }
     
-    func collectionView(collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, minimumInteritemSpacingForSectionAtIndex section: Int) -> CGFloat {
+    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, minimumInteritemSpacingForSectionAt section: Int) -> CGFloat {
         return kVerticalInsets
     }
-    
-    func shuffle<T>(var list: Array<T>) -> Array<T> {
+
+    @discardableResult
+    func shuffle<T>( _ list: inout Array<T>) -> Array<T> {
         for i in 0..<list.count {
             let j = Int(arc4random_uniform(UInt32(list.count - i))) + i
-            list.insert(list.removeAtIndex(j), atIndex: i)
+            list.insert(list.remove(at: j), at: i)
         }
         return list
     }
     
     // Adds a new cell
-    @IBAction func add(sender: AnyObject) {
+    @IBAction func add(_ sender: AnyObject) {
         addNewOne()
-        self.shuffle(fontArray)
+        self.shuffle(&fontArray)
         collectionView.reloadData()
         collectionView.collectionViewLayout.invalidateLayout()
     }
     // Deletes a cell
-    @IBAction func deleteOne(sender: AnyObject) {
+    @IBAction func deleteOne(_ sender: AnyObject) {
         if titleData.count > 0 { titleData.removeLast() }
         if contentData.count > 0 { contentData.removeLast() }
-        self.shuffle(fontArray)
+        self.shuffle(&fontArray)
         collectionView.reloadData()
         collectionView.collectionViewLayout.invalidateLayout()
     }
     
     // MARK: - Rotation
     // iOS7
-    override func willRotateToInterfaceOrientation(toInterfaceOrientation: UIInterfaceOrientation, duration: NSTimeInterval) {
+    override func willRotate(to toInterfaceOrientation: UIInterfaceOrientation, duration: TimeInterval) {
         collectionView.collectionViewLayout.invalidateLayout()
         }
     
     // iOS8
-    override func viewWillTransitionToSize(size: CGSize, withTransitionCoordinator coordinator: UIViewControllerTransitionCoordinator) {
+    override func viewWillTransition(to size: CGSize, with coordinator: UIViewControllerTransitionCoordinator) {
         collectionView.collectionViewLayout.invalidateLayout()
-        }
+    }
 }
 
