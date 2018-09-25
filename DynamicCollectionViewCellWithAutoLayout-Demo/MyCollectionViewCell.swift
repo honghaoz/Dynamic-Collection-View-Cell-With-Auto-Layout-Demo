@@ -25,7 +25,7 @@ class MyCollectionViewCell: UICollectionViewCell {
         // Initialization code
         if isIOS7 {
             // Need set autoresizingMask to let contentView always occupy this view's bounds, key for iOS7
-            self.contentView.autoresizingMask = [.FlexibleHeight, .FlexibleWidth]
+            self.contentView.autoresizingMask = [.flexibleHeight, .flexibleWidth]
         }
         self.layer.masksToBounds = true
     }
