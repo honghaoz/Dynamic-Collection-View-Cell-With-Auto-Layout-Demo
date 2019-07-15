@@ -52,7 +52,7 @@ self.contentView.autoresizingMask = [.FlexibleHeight, .FlexibleWidth]
 
 and in `layoutSubviews()`
 
-Set `contentLabel.preferredMaxLayoutWidth` to a prefered value, like `contentLabel.preferredMaxLayoutWidth = self.bounds.width - 2 * kLabelHorizontalInsets`
+Set `contentLabel.preferredMaxLayoutWidth` to a preferred value, like `contentLabel.preferredMaxLayoutWidth = self.bounds.width - 2 * kLabelHorizontalInsets`
 
 You may also need a configure function, make sure in this function, call `self.setNeedsLayout()` and `self.layoutIfNeeded()`
 
